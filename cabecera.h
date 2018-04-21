@@ -1,3 +1,4 @@
+//Las estructuras que se declaracian en el main sería solamente para semáforos y recursos totales
 #include<stdio.h>
 #include<string.h>
 
