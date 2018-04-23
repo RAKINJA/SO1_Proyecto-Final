@@ -1,3 +1,7 @@
+
+#ifndef cabecera_h
+#define cabecera_h
+
 //Las estructuras que se declaracian en el main sería solamente para semáforos y recursos totales
 #include<stdio.h>
 #include<string.h>
@@ -24,13 +28,13 @@ typedef struct PROCESO{
 typedef struct RECURSOSDISPONIBLES{
   char nombre[20];
   int disponibles;
-  struct RECURSOSDISPONiBLES *siguiente;
+  struct RECURSOSDISPONIBLES *siguiente;
 };
 
 //Estructura de un semáforo
 typedef struct SEMAFORO{
   int semid;
-  struct RECURSOSDISPONiBLES *recursos;
+  struct RECURSOSDISPONIBLES *recursos;
   struct PROCESOS *procesos;
   struct SEMAFORO *siguiente;
 };
@@ -48,7 +52,7 @@ typedef struct RECURSOSTOTALES{
 //Declaración de métodos
 
 /*
-        Puesto que la tabla de cotrol de procesos include todos los procesos creados, entonces pasamos la lista de semaforos
+        Puesto que la tabla de control de procesos incluye todos los procesos creados, entonces pasamos la lista de semaforos
         para poder recorrer la lista de procesos que contiene cada semaforo.
 */
 void mostrarTablaDeContol(SEMAFORO listaSemaforos);
@@ -84,3 +88,5 @@ PROCESO agregarALaLista(PROCESO listaProceso, RECURSOSTOTALES listaRecursos);
         Método que sirve para añadir las regiones criticas de un proceso.
 */
 REGIONCRITICA agregarRegionCritica(RECURSOSTOTALES listaRecursos);
+
+#endif
