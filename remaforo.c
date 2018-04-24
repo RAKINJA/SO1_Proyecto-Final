@@ -1,7 +1,11 @@
-SEMAFORO agregarSemaforo(SEMAFORO listaSemaforos, RECURSOSTOTALES listaRecursos){
+#include "cabecera.h"
+#include <stdlib.h>
+
+SEMAFORO* agregarSemaforo(SEMAFORO* listaSemaforos, RECURSOSTOTALES* listaRecursos){
 	if(listaRecursos!=NULL){
+		
 		//creamos el nuevo semaforo
-		SEMAFORO nuevo=(SEMAFORO)malloc(sizeof(SEMAFORO));
+		SEMAFORO* nuevo=(SEMAFORO*)malloc(sizeof(SEMAFORO));
 		//Inicializamos estructuras en NULL para no tener problemas con otros métodos
 		nuevo->recursos=NULL;
 		nuevo->procesos=NULL;
@@ -21,7 +25,7 @@ SEMAFORO agregarSemaforo(SEMAFORO listaSemaforos, RECURSOSTOTALES listaRecursos)
 			if(rec <= 0) printf("\t\t\tCantidad de recursos invalida!");
 		} while(rec <= 0);
 		for(int i=0;i<rec;i++){
-			nuevo->recursos=agregarRecursosDisponibles(nuevo,listaRecursos);
+			nuevo->recursos = agregarRecursosDisponibles(nuevo,listaRecursos);
 		}
 	}else{
 		printf("\n\t\t\tSin recursos!\n");
@@ -30,10 +34,10 @@ SEMAFORO agregarSemaforo(SEMAFORO listaSemaforos, RECURSOSTOTALES listaRecursos)
 }
 
 
-SEMAFORO agregarProceso(SEMAFORO listaSemaforos){
+SEMAFORO* agregarProceso(SEMAFORO* listaSemaforos){
 	//verificamos que haya semaforos a los cuales agregar procesos
 	if(listaSemaforos!=NULL){
-		SEMAFORO aux=listaSemaforos;
+		SEMAFORO* aux=listaSemaforos;
 		//verificamos si hay un solo semaforo
 		if(listaSemaforos->siguiente!=NULL){
 			//Como hay mas de un semaforo, entonces pedimos a cual semaforo queremos agregar el proceso

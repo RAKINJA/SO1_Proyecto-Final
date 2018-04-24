@@ -1,11 +1,14 @@
-RECURSOSTOTALES agregarRecursos(RECURSOSTOTALES listaRecursos){
+#include "cabecera.h"
+#include <stdlib.h>
+
+RECURSOSTOTALES* agregarRecursos(RECURSOSTOTALES* listaRecursos){
 	//creamos un nuevo recurso y le asignamos a siguiente NULL
-	RECURSOSTOTALES nuevo=(RECURSOSTOTALES)malloc(sizeof(RECURSOSTOTALES));
+	RECURSOSTOTALES* nuevo=(RECURSOSTOTALES*)malloc(sizeof(RECURSOSTOTALES));
 	nuevo->siguiente=NULL;
 	
 	//aux nos ayuda a hacer el recorrido
 	//ban sirve para saber si no está repetido, si es cero si no está repetido, uno si lo está
-	RECURSOSTOTALES aux=listaRecursos;
+	RECURSOSTOTALES* aux=listaRecursos;
 	int ban=0;
 	//Pedimos el nombre del recurso y verificamos si no está repetido
 	do{

@@ -1,6 +1,9 @@
-PROCESO agregarALaLista(SEMAFORO cabeza, SEMAFORO actual){
+#include "cabecera.h"
+#include <stdlib.h>
+
+PROCESO* agregarALaLista(SEMAFORO* cabeza, SEMAFORO* actual){
 	//Creamos el nuevo proceso
-	PROCESO nuevo=(PROCESO)malloc(sizeof(PROCESO));
+	PROCESO* nuevo=(PROCESO*)malloc(sizeof(PROCESO));
 	//inicializamos variables en NULL para que no afecten otros metodo
 	nuevo->rc=NULL;
 	nuevo->siguiente=NULL;
@@ -10,9 +13,9 @@ PROCESO agregarALaLista(SEMAFORO cabeza, SEMAFORO actual){
 		ban=0;
 		printf("\n\t\tIngrese el PID: ");
 		scanf("%i",&nuevo->pid);
-		SEMAFORO auxS=cabeza;
+		SEMAFORO* auxS=cabeza;
 		while(auxS!=NULL){
-			PROCESO auxP=auxS->procesos;
+			PROCESO* auxP=auxS->procesos;
 			while(auxP!=NULL){
 				if(nuevo->pid == auxP->pid){
 					ban=1;

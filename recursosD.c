@@ -1,9 +1,12 @@
-RECURSOSDISPONIBLES agregarRecursosDisponibles(SEMAFORO actual, RECURSOSTOTALES listaRecursos){
+#include "cabecera.h"
+#include <stdlib.h>
+
+RECURSOSDISPONIBLES* agregarRecursosDisponibles(SEMAFORO actual, RECURSOSTOTALES* listaRecursos){
 	//Creamos el contenedor donde estará el recurso
-	RECURSOSDISPONIBLES nuevo=(RECURSOSDISPONIBLES)malloc(sizeof(RECURSOSDISPONIBLES));
+	RECURSOSDISPONIBLES* nuevo=(RECURSOSDISPONIBLES*)malloc(sizeof(RECURSOSDISPONIBLES));
 	nuevo->siguiente=NULL;
 	//Mostramos los recursos que hay en total
-	RECURSOSTOTALES aux=listaRecursos;
+	RECURSOSTOTALES* aux=listaRecursos;
 	while(aux!=NULL){
 		printf("%i)%s\n",aux->num,aux->nombre);
 		aux=aux->siguiente;

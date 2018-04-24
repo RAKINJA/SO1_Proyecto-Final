@@ -1,6 +1,10 @@
-REGIONCRITICA agregarRegionCritica(SEMAFORO actual, PROCESO creado){
+#include "cabecera.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+REGIONCRITICA* agregarRegionCritica(SEMAFORO actual, PROCESO creado){
 	//Creamos el recurso que requiere el proceso
-	REGIONCRITICA nuevo=(REGIONCRITICA)malloc(sizeof(REGIONCRITICA));
+	REGIONCRITICA* nuevo=(REGIONCRITICA*)malloc(sizeof(REGIONCRITICA));
 	nuevo->siguiente=NULL;
 	//pedimos el tiempo donde inicia el proceso
 	do{
